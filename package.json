@@ -1,13 +1,15 @@
 {
   "name": "angular-lib",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --watch false --browsers ChromeHeadless",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-lib": "ng build @arena-ui/core && ng build @arena-ui/social-share",
+    "pack-lib": "cd dist/arena-ui/core && npm pack && cd ../../arena-ui/social-share && npm pack"
   },
   "private": true,
   "dependencies": {
@@ -19,11 +21,18 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
-    "rxjs": "~6.4.0",
-    "tslib": "^1.10.0",
+    "core-js": "2.6.9",
+    "file-saver": "~2.0.2",
+    "immutable-ics": "~0.4.0",
+    "ngx-bootstrap": "~5.3.2",
+    "rxjs": "~6.5.3",
+    "tslib": "~1.10.0",
+    "ts-loader": "~5.3.3",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.803.19",
+    "@angular-devkit/build-ng-packagr": "~0.803.19",
     "@angular/cli": "~8.3.18",
     "@angular/compiler-cli": "~8.2.13",
     "@angular/language-service": "~8.2.13",
@@ -38,8 +47,10 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "ng-packagr": "^5.4.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
+    "tsickle": "^0.37.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   }
